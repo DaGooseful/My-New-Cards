@@ -1,11 +1,4 @@
 import { LitElement, html, css } from 'lit';
-
-/**
- * Now it's your turn. Here's what we need to try and do:
- * 1. Get you HTML from your card working in here 
- * 2. Get your CSS rescoped as needed to work here
- */
-
 export class MyCard extends LitElement {
 
   static get tag() {
@@ -14,7 +7,9 @@ export class MyCard extends LitElement {
 
   constructor() {
     super();
-    this.title = "My card";
+    this.title = "Penn State";
+    this.source = "https://th.bing.com/th/id/R.8f1a74d55024e51c79fbde22fcb4139e?rik=EYVSyaoZaa1hOA&pid=ImgRaw&r=0";
+    this.description = "Founded in 1855, Penn State University has evolved from a small agricultural college into a major research institution and the only land-grant university in Pennsylvania.";
   }
 
   static get styles() {
@@ -22,16 +17,58 @@ export class MyCard extends LitElement {
       :host {
         display: block;
       }
+      .PennStateCard {
+        background-color: green;
+        width: 300px;
+        height: 400px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 16px;
+        overflow: hidden;
+        h2 {
+          color: blue;
+          font-family: Helvetica;
+        }
+  }
+      .card-img {
+       width: 100%;
+      height: auto;
+      max-height: 200px; /* optional limit */
+      object-fit: cover; /* makes it crop nicely if needed */
+      border-radius: 4px;
+      }
+      .card-description {
+        color: white;
+        font-family: sans-serif;
+        font-size: 13px;        
+        margin-top: 2px;        
+        text-align: center;       
+        display: inline-block;  
+        max-width: 350px;       
+        overflow-wrap: break-word;
+    }
     `;
   }
 
   render() {
-    return html`<div>${this.title}</div>`;
+    return html`
+      <div id="PennList">
+        <div class="PennStateCard">
+          <div style="text-align: center;">
+            <h2 class="card-title">${this.title}</h2>
+            <img class="card-img" src="${this.source}" alt="Card Image">
+            <p class="card-description">${this.description}</p>
+          </div>
+        </div>
+      </div>`;
+
   }
 
   static get properties() {
     return {
       title: { type: String },
+      source: { type: String },
+      description: { type: String },
     };
   }
 }
