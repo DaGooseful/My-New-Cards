@@ -10,6 +10,8 @@ export class MyCard extends LitElement {
     this.title = "Penn State";
     this.source = "https://th.bing.com/th/id/R.8f1a74d55024e51c79fbde22fcb4139e?rik=EYVSyaoZaa1hOA&pid=ImgRaw&r=0";
     this.description = "Founded in 1855, Penn State University has evolved from a small agricultural college into a major research institution and the only land-grant university in Pennsylvania.";
+    this.buttonText = "More Info";
+    this.link = "https://hax.psu.edu/";
   }
 
   static get styles() {
@@ -47,6 +49,15 @@ export class MyCard extends LitElement {
         max-width: 350px;       
         overflow-wrap: break-word;
     }
+      .PennButton{
+        color: red;
+        background-color: blue;
+      }
+      .PennButton:hover,
+      .PennButton:focus{
+        color: orange;
+      }
+
     `;
   }
 
@@ -58,6 +69,7 @@ export class MyCard extends LitElement {
             <h2 class="card-title">${this.title}</h2>
             <img class="card-img" src="${this.source}" alt="Card Image">
             <p class="card-description">${this.description}</p>
+            <a href="${this.link}" class="Pennbutton">${this.buttonText}</a>
           </div>
         </div>
       </div>`;
@@ -69,6 +81,8 @@ export class MyCard extends LitElement {
       title: { type: String },
       source: { type: String },
       description: { type: String },
+      buttonText: { type: String },
+      link: { type: String },
     };
   }
 }
