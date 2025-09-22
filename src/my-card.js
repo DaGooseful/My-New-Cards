@@ -17,7 +17,7 @@ export class MyCard extends LitElement {
   static get styles() {
     return css`
       :host {
-        display: block;
+        display: inline-block
       }
       .PennStateCard {
         background-color: green;
@@ -27,16 +27,17 @@ export class MyCard extends LitElement {
         border-radius: 8px;
         padding: 16px;
         overflow: hidden;
-        h2 {
+       
+  }
+      h2 {
           color: blue;
           font-family: Helvetica;
         }
-  }
       .card-img {
        width: 100%;
       height: auto;
-      max-height: 200px; /* optional limit */
-      object-fit: cover; /* makes it crop nicely if needed */
+      max-height: 200px;
+      object-fit: cover;
       border-radius: 4px;
       }
       .card-description {
@@ -63,16 +64,14 @@ export class MyCard extends LitElement {
 
   render() {
     return html`
-      <div id="PennList">
         <div class="PennStateCard">
           <div style="text-align: center;">
             <h2 class="card-title">${this.title}</h2>
-            <img class="card-img" src="${this.source}" alt="Card Image">
+            <img class="card-img" src="${this.source}" alt="">
             <p class="card-description">${this.description}</p>
-            <a href="${this.link}" class="Pennbutton">${this.buttonText}</a>
+            <a href="${this.link}" class="PennButton">${this.buttonText}</a>
           </div>
-        </div>
-      </div>`;
+        </div>`;
 
   }
 
